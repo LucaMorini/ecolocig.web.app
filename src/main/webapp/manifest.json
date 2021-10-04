@@ -1,0 +1,19 @@
+{
+  "name": "Non SprECO",
+  "short_name": "nonsprECO",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#70CC5D",
+  "theme_color": "#5AA74A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {	"src": "/assets/img/icone/tree-46-16.png",      "type": "image/png",      "sizes": "16x16"		},
+    {   "src": "/assets/img/icone/tree-46-24.png",      "type": "image/png",      "sizes": "24x24"	    },
+    {   "src": "/assets/img/icone/tree-46-32.png",      "type": "image/png",      "sizes": "32x32"	    },
+    {   "src": "/assets/img/icone/tree-46-48.png",      "type": "image/png",      "sizes": "48x48"	    },
+    {   "src": "/assets/img/icone/tree-46-64.png",      "type": "image/png",      "sizes": "64x64"	    },
+    {   "src": "/assets/img/icone/tree-46-128.png",     "type": "image/png",      "sizes": "128x128"    },
+    {   "src": "/assets/img/icone/tree-46-256.png",     "type": "image/png",      "sizes": "256x256"    },
+    {   "src": "/assets/img/icone/tree-46-512.png",     "type": "image/png",      "sizes": "512x512"    }
+  ]
+}

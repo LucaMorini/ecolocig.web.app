@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Non SprECO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Manifest -->
+		<link rel="manifest" href="/manifest.json" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- FireBase -->
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+		<!-- Auth Firebase -->
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+		<!-- FireBase -->
+		<script>
+  			const firebaseConfig = {
+    			apiKey: "AIzaSyDb_FsxD2f-6cxiPqa09XcIcFPChyXyBxw",
+    			authDomain: "ecolocig.firebaseapp.com",
+    			projectId: "ecolocig",
+    			storageBucket: "ecolocig.appspot.com",
+    			messagingSenderId: "781950645825",
+    			appId: "1:781950645825:web:3b64d1788cea0bc22eb8c0",
+    			measurementId: "G-PWMWHDKFEH"
+  			};
+
+  			// Initializza Firebase
+  			firebase.initializeApp(firebaseConfig);
+  			const db = firebase.firestore();
+  			const auth = firebase.auth();
+  			const provider = new firebase.auth.GoogleAuthProvider();
+  			const user = firebase.auth().currentUser;		
+		</script>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Header -->
+			<header id="header">
+				<div class="logo">
+					<img src="assets/img/icone/tree-46-256.ico" width=70% height=70%>
+				</div>
+				<div class="content">
+					<div class="inner">
+						<h1>Non Spr<span>ECO</span></h1>
+						<p>Insieme a te per sostenerti in una giornata piu' ecologica</p>
+					</div>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="#spreco">Aggiungi Spreco</a></li>	<!--	aggiungi oggetto, visualizza tutti oggetti aggiunti nel index -->
+						<li><a href="#giornata">La mia giornata</a></li>	<!--	visualizza  il cestino per monitorare i tuoi progressi -->
+						<li><a href="#calendario">Calendario</a></li>		<!--	vedi come sei andato rispetto ai giorni precedenti -->
+						<li><a href="#scoreboard">Scoreboard</a></li>		<!--	vedi come stai andando rispetto agli altri utenti -->
+						<li><a href="#info">Informazioni</a></li>		<!--	cambia il tuo nome utente, immagine e provincia -->
+						<li id="login-li"><button id="login">Login</button>
+						<li id="logout-li"><button id="logout">Logout</button>
+					</ul>
+				</nav>
+			</header>
+			<!-- Main -->
+			<div id="main">
+			
+<!-- Aggiungi Spreco -->
+				<article id="spreco">
+					<h2 class="major" >Aggiungi uno spreco</h2>
+					<form class="add-recipe container section">
+						<div class="divider"></div>
+			  			<div class="input-field">
+					  		<input placeholder="e.g. bottiglia di plastica, cartone,..." id="nome" type="text" class="validate">
+					  		<label for="nome">nome del prodotto</label>
+						</div>
+						<div class="input-field">
+							<select class="form-control" id="tipo">			
+								<option disabled selected value> -- tipo di rifiuto -- </option>
+							    <option value="carta">Carta</option>
+							    <option value="plastica">Plastica</option>
+							    <option value="vetro">Vetro/Alluminio</option>
+							    <option value="indifferenziato">Rifiuto Indifferenziato</option>
+							    <option value="organico">Rifiuto Organico</option>
+					  		</select>
+					   		<label for="tipo">tipologia del rifiuto</label>
+					 	</div>
+					 	<div class="input-field">
+						 	<input placeholder="e.g. 10, 20, 30, 40, 50, 60, 70" id="grand" type="number" min=10 max=1000 step=10 class="validate">
+						  	<label for="grand">grandezza del rifiuto</label>
+						</div>
+					 	<div class="input-field">
+							<select class="form-control" id="cod">			
+							  	<option disabled selected value> -- codice del rifiuto -- </option>
+							    <option value="1">PET</option>
+							    <option value="2">HDPE</option>
+							    <option value="3">PVC</option>
+							    <option value="4">LDPE</option>
+							    <option value="5">PP</option>
+							    <option value="6">PS</option>
+							    <option value="20">PAP-20</option>
+							    <option value="21">PAP-21</option>
+							    <option value="22">PAP-22</option>
+							    <option value="40">FE</option>
+							    <option value="41">ALU</option>
+							    <option value="70">GL-70</option>
+							    <option value="71">GL-71</option>
+							    <option value="72">GL-72</option>
+							    <option value="ORG">ORG</option>
+							    <option value="IND">IND</option>
+						  	</select>
+					  		<label for="cod">codice del rifiuto</label>
+					  	</div>
+					  	<div class="input-field center">
+							<button class="btn-small">Add</button>
+					  	</div>
+					</form>
+				</article>
+			
+			
+			
+<!-- INFO					-->
+				<article id="info">
+					<h2 class="major">Informazioni utili</h2>
+					<h3 class="major">Cose da sapere sulla Plastica</h3>
+					<p>Qui di seguito sono elencati e descritti (codifiche da 1 a 6) i polimeri più diffusi nel mondo dell’imballaggio. Le codifiche utilizzate (stabilite come standard internazionale SPI – Society of Plastic Industry)  sono quelle utilizzate per l’individuazione del materiale proprio ai fini del riciclo. Il codice 7 è riferito genericamente a tutti gli altri tipi di plastiche. Tutti gli imballaggi in plastica, a prescindere dal polimero e dalla codifica, sono sempre conferibili nella raccolta differenziata.</p>
+					<h4>POLIETILENE TEREFTALATO (PETE O PET - COD. RICICLO: 1)</h4>
+					<p>Il polietilene tereftalato o polietilentereftalato fa parte della famiglia dei poliesteri. E’ una resina termoplastica che appartiene alla famiglia dei poliesteri, e per le sue caratteristiche di trasparenza, resistenza e barriera ai gas, è particolarmente adatta  alla produzione di bottiglie per bevande gasate e vaschette.Tra le principali applicazioni:</p>
+					<ul>
+					<li>bottiglie</li>
+					<li>film</li>
+					<li>tubi</li>
+					<li>vaschette e blister</li>
+					<li>contenitori ed imballaggi</li>
+					<li>etichette</li>
+					</ul>
+					<br>
+					<h4>POLIETILENE AD ALTA DENSITÀ (HDPE - COD. RICICLO: 2)</h4>
+					<p>Il polietilene (PE) è il più semplice tra i polimeri sintetici ed è la più comune fra le materie plastiche. Si tratta di una resina termoplastica, ottenuta dalla polimerizzazione dell’etilene. Si distingue in polietilene ad alta densità (PE-HD) ed a bassa densità (PE-LD), al quale è stato assegnato il codice riciclo 4. Il polietilene ad alta densità è formato da catene lineari, che conferiscono una maggiore resistenza e rigidità, rendendolo quindi particolarmente adatto alla produzione di barattoli e contenitori rigidi. Le applicazioni più comuni sono:</p>
+					<ul>
+					<li>flaconi per il contenimento di detersivi o alimenti</li>
+					<li>giocattoli</li>
+					<li>tappi in plastica</li>
+					<li>tubi per il trasporto di acqua e gas naturale</li>
+					</ul>
+					<br>
+					<h4>CLORURO DI POLIVINILE (PVC - COD. RICICLO: 3)</h4>
+					<p>Il cloruro di polivinile (o polivinilcloruro) è il polimero ottenuto dalla polimerizzazione del cloruro di vinile ed è una termoplastica. Le applicazioni più rilevanti sono:</p>
+					<ul><li>tubi per edilizia (ad esempio grondaie e tubi per acqua potabile)</li>
+					<li>serramenti</li>
+					<li>pavimenti vinilici</li>
+					<li>pellicola rigida e plastificata per imballi</li>
+					<li>dischi fonografici</li>
+					</ul>
+					<br>
+					<h4>POLIETILENE A BASSA DENSITÀ (LDPE - COD. RICICLO:4)</h4>
+					<p>Il polietilene a bassa  densità (anch’esso una termoplastica) appartiene alla famiglia dei polietileni, cioè dei polimeri ricavati dalla polimerizzazione dell’etilene, e si distingue perché le catene di polimeri non sono lineari come nel polietilene ad alta densità (PE-HD, codice riciclo 2), ma presentano ramificazioni, che lo rendono un materiale più leggero, duttile e flessibile. Trova applicazione soprattutto nella produzione di manufatti flessibili come film e pellicole (da cui derivano anche sacchetti e buste), utilizzati sia per l’imballaggio che, ad esempio, in agricoltura.</p>
+					<br>
+					<h4>POLIPROPILENE (PP - COD. RICICLO: 5)</h4>
+					<p>Il polipropilene è una materia termoplastica che ha trovato le sue più vaste applicazioni nella forma isotattica. Sono di polipropilene moltissimi oggetti di uso comune in plastica, a cominciare dagli articoli casalinghi e dai giocattoli, ma anche molti imballaggi sia rigidi (barattoli, flaconi) che flessibili (film per imballaggio automatico).</p>
+					<br>
+					<h4>POLISTIRENE O POLISTIROLO (PS - COD. RICICLO: 6)</h4>
+					<p>Il polistirene, o polistirolo, è il polimero (termoplastico) dello stirene. Il polistirolo espanso (EPS) si ottiene immergendo il granulo di polistirolo in acqua e aggiungendo pentano. Col polistirene viene realizzato un gran numero di manufatti: dalle stoviglie monouso agli  imballaggi. La versione espansa è presente nella realizzazione di imballaggi e di manufatti alleggerenti, isolanti, fonoassorbenti per l’edilizia.</p>
+					<br>
+					<h4>ALTRE PLASTICHE (COD. RICICLO: 7)</h4>
+					<p>Rientrano in questa categoria tutti gli altri polimeri, per i quali non è stato previsto un codice specifico, o le loro combinazioni (ad esempio una vaschetta costituita da uno strato esterno di PET ed uno interno di PE-LD). Esempi di polimeri utilizzati per produrre imballaggi per i quali non è stato definito un codice di riciclo specifico sono: Polimetilmetacrilato (PMMA), Policarbonato (PC), Acido polilattico (PLA).</p>
+					
+				</article>
+
+
+<!-- Calendario 	-->
+				<article id="calendario">
+					<h2 class="major">Calendario</h2>
+					<h3>Come sei andato gli scorsi  giorni</h3>
+					<div id="cal"></div>
+				</article>
+
+<!-- Scoreboard	 -->
+
+				<article id="scoreboard">
+					<h2 class="major">Classifica dei piú virtuosi</h2>
+					<h3>Scopri chi altro usa <span>Non SprECO</span> e come sta andando</h3>
+					<div id="score"></div>
+				</article>
+					
+<!-- La mia Giornata	 -->
+				<article id="giornata">
+					<h2 class="major">La tua Giornata</h2>
+					<div id="img_cestino">   <!-- elenco_rifiuti -->
+						<img src="assets/img/svg/cest100.svg" width=100% height=100%>
+						<p>Qui potrai vedere gli sprechi aggiunti oggi, dopo aver effettuato il login</p>
+					</div>
+					<ul class="alt" id="elenco_giornata">
+					</ul>
+				</article>	
+							
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Sviluppato da Luca Morini.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<!-- ServiceWorker -->
+			<script src="/assets/js/registersw.js"></script>
+			<script src="/assets/js/db.js"></script>
+			<script src="/assets/js/ui.js"></script>
+			<script src="/assets/js/auth.js"></script>
+	</body>
+</html>
