@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+	aria-describedby="desc" role="progressbar" 	height="50%" width="50%"	class="progress"	aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+	xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+    <linearGradient id="1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <!-- soglie cambi colore da impostare con javascript -->
+      <stop offset="0%" stop-color="#00FF00" />				<!-- inizio = verde -->
+      <stop offset="70%" stop-color="#996600" />			<!-- soglia 1: fine verde, inizio rosso -->
+      <stop offset="70%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+<!--      <stop offset="80%" stop-color="#600000" />			 soglia 2: fine rosso, inizio nero -->
+<!--      <stop offset="100%" stop-color="#000000" />			 fine = nero -->		
+    </linearGradient>
+	</defs>
+  <title>Trash</title>
+  <desc>A flat styled icon from Orion Icon Library.</desc>
+  <!-- 	colore sfondo	 -->
+  <path data-name="layer2" fill="url(#1)" d="M11.066 2l6.032 60h30l5.937-60H11.066z"></path>
+  <!--		ombra  
+  <path data-name="opacity" fill="#000064" opacity=".15" d="M31.953 2H11.066l6.032 60h14.855V2z"></path>
+  -->
+  <!--  coperchio	-->
+  <path data-name="layer1" d="M58 3H6a1 1 0 0 1 0-2h52a1 1 0 0 1 0 2z" fill="#7c89ad"></path>
+  <!-- struttura esterna  -->
+  <path data-name="layer1" d="M47 63H17a1 1 0 0 1-1-.9l-6.026-60a1 1 0 0 1 1.99-.2L17.9 61h28.19l5.852-59.1a1 1 0 1 1 1.99.2L48 62.1a1 1 0 0 1-1 .9z" fill="#7c89ad"></path>
+  <!--  righe orizzontali interne -->
+  <path data-name="layer1" d="M51.531 17H12.57a1 1 0 0 1 0-2h38.961a1 1 0 0 1 0 2zM50.1 31H13.958a1 1 0 1 1 0-2H50.1a1 1 0 0 1 0 2zm-1.517 16H15.392a1 1 0 1 1 0-2h33.191a1 1 0 0 1 0 2z" fill="#7c89ad" fill-opacity="0.7"></path>
+  <!--  righe verticali interne -->
+  <path data-name="layer1" d="M27 63a1 1 0 0 1-1-.95l-3-60a1 1 0 1 1 2-.1l3 60a1 1 0 0 1-.95 1.05zm9.961 0h-.052a1 1 0 0 1-.948-1.049l3.04-60a1 1 0 1 1 2 .1l-3.04 60a1 1 0 0 1-1 .949z" fill="#7c89ad" fill-opacity="0.7"></path>
+  
+</svg>
